@@ -1,0 +1,53 @@
+{
+  "dishes": [
+    {
+      "id": "c2b943ed-5170-40c1-808d-4da07bfce54e",
+      "nome": "Feijoada",
+      "descricao": "Prato tradicional brasileiro com feijão preto e carnes",
+      "preco": 35.9,
+      "categoria": "Brasileira",
+      "disponivel": true
+    },
+    {
+      "id": "b11aacc3-9d94-4bbc-90a0-21417159e44b",
+      "nome": "Feijoada",
+      "descricao": "Prato tradicional brasileiro com feijão preto e carnes",
+      "preco": 35.9,
+      "categoria": "Brasileira",
+      "disponivel": true
+    },
+    {
+      "id": "a8b24b2f-9198-445e-b15d-2908426ddd85",
+      "nome": "Feijoada 2",
+      "descricao": "Prato tradicional brasileiro com feijão preto e carnes",
+      "preco": 35.9,
+      "categoria": "Brasileira",
+      "disponivel": true
+    },
+    {
+      "id": "cb9a5e34-2ca3-4f03-b7bf-2baa787714ee",
+      "nome": "Lasanha",
+      "descricao": "Prato tradicional brasileiro com feijão preto e carnes",
+      "preco": 35.9,
+      "categoria": "Italiana",
+      "disponivel": true
+    }
+  ],
+  "users": [
+    {
+      "password": "$2b$10$yuO0UOb.9rhiNDuk4vzw5.c2YU9qemOqyRTL3nsM4vgTgb4nCvVwu"
+    },
+    {
+      "email": "tiagocnn.710@gmail.com",
+      "password": "$2b$10$fHdL.gGuW3cERVtEE9FQsOK0zKixHTfl67STr/nq7NpYJL8L36ZM2"
+    },
+    {
+      "email": "tiagocnn.100@gmail.com",
+      "password": "$2b$10$rTVzJFNGKF/2Skg3wyTbweO5XtCYmX1rHiuNzJwl2yiiHWxCTzQCa"
+    },
+    {
+      "email": "tiagocnn.123@gmail.com",
+      "password": "$2b$10$3PT8mI4KjbVVEVmR.LL8I./84RuUP1LITYABkcrGe/SxQKVlzhxDa"
+    }
+  ]
+}
