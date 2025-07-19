@@ -1,26 +1,20 @@
 import { db } from '../models/db.js';
 import { v4 as uuid } from 'uuid';
 
-// ✅ Melhoria: Função utilitária para validar preço
 const isPrecoValido = (preco) => typeof preco === 'number' && preco > 0;
-
-// ✅ Melhoria: função auxiliar para mensagens de erro padronizadas
 const sendServerError = (res, error) => {
-  console.error('Erro:', error); // Log do erro para facilitar debug
+  console.error('Erro:', error);
   res.status(500).json({ message: 'Erro interno do servidor' });
 };
-
-// Listar todos os pratos
 export const getAllDishes = async (req, res) => {
   try {
     await db.read();
-    res.json(db.data.dishes || []); // ✅ Melhoria: retorna array vazio se não houver pratos
+    res.json(db.data.dishes || []);
   } catch (error) {
     sendServerError(res, error);
   }
 };
 
-// Buscar prato por ID
 export const getDishById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -37,12 +31,10 @@ export const getDishById = async (req, res) => {
   }
 };
 
-// Cadastrar novo prato
 export const createDish = async (req, res) => {
   try {
     const { nome, descricao, preco, categoria, disponivel } = req.body;
 
-    // ✅ Melhoria: Trim e validações mais robustas
     if (!nome?.trim() || !descricao?.trim() || preco === undefined || !categoria?.trim()) {
       return res.status(400).json({ message: 'Campos obrigatórios ausentes ou inválidos' });
     }
@@ -57,7 +49,7 @@ export const createDish = async (req, res) => {
       descricao: descricao.trim(),
       preco,
       categoria: categoria.trim(),
-      disponivel: disponivel ?? true, // ✅ Melhoria: fallback mais explícito
+      disponivel: disponivel ?? true,
     };
 
     await db.read();
@@ -69,7 +61,6 @@ export const createDish = async (req, res) => {
   }
 };
 
-// Atualizar prato
 export const updateDish = async (req, res) => {
   try {
     const { id } = req.params;
@@ -77,11 +68,11 @@ export const updateDish = async (req, res) => {
 
     await db.read();
     const dish = db.data.dishes.find((d) => d.id === id);
+
     if (!dish) {
       return res.status(404).json({ message: 'Prato não encontrado' });
     }
 
-    // ✅ Melhoria: Atualizações com trim e validações adicionais
     if (nome !== undefined) dish.nome = nome.trim();
     if (descricao !== undefined) dish.descricao = descricao.trim();
     if (categoria !== undefined) dish.categoria = categoria.trim();
@@ -101,7 +92,6 @@ export const updateDish = async (req, res) => {
   }
 };
 
-// Deletar prato
 export const deleteDish = async (req, res) => {
   try {
     const { id } = req.params;
@@ -112,7 +102,7 @@ export const deleteDish = async (req, res) => {
       return res.status(404).json({ message: 'Prato não encontrado' });
     }
 
-    db.data.dishes.splice(index, 1); // ✅ Melhoria: splice é mais eficiente que recriar array
+    db.data.dishes.splice(index, 1);
     await db.write();
     res.status(204).end();
   } catch (error) {
@@ -120,7 +110,6 @@ export const deleteDish = async (req, res) => {
   }
 };
 
-// Buscar prato por nome ou categoria
 export const searchDish = async (req, res) => {
   try {
     const { nome = '', categoria = '' } = req.query;
@@ -128,7 +117,7 @@ export const searchDish = async (req, res) => {
 
     const results = db.data.dishes.filter((d) =>
       d.nome.toLowerCase().includes(nome.toLowerCase()) &&
-      d.categoria.toLowerCase().includes(categoria.toLowerCase()) // ✅ Melhoria: permite busca parcial de categoria
+      d.categoria.toLowerCase().includes(categoria.toLowerCase())
     );
 
     res.json(results);
@@ -136,3 +125,23 @@ export const searchDish = async (req, res) => {
     sendServerError(res, error);
   }
 };
+
+export async function atualizarDisponibilidade(req, res) {
+  const { id } = req.params;
+  const { disponivel } = req.body;
+
+  try {
+    const result = await prisma.dish.update({
+      where: { id: Number(id) },
+      data: { disponivel: Boolean(disponivel) },
+    });
+
+    res.json(result);
+  } catch (error) {
+    console.error('Erro ao atualizar disponibilidade:', error);
+    res.status(500).json({ error: 'Erro ao atualizar disponibilidade' });
+  }
+;}
+
+
+

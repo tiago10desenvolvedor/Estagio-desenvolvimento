@@ -2,11 +2,11 @@
   "dishes": [
     {
       "id": "c2b943ed-5170-40c1-808d-4da07bfce54e",
-      "nome": "Feijoada",
-      "descricao": "Prato tradicional brasileiro com feijão preto e carnes",
-      "preco": 35.9,
-      "categoria": "Brasileira",
-      "disponivel": true
+      "nome": "Pizza Calabresa 03",
+      "descricao": "Com calabresa e cebola",
+      "preco": 37,
+      "categoria": "Pizza",
+      "disponivel": false
     },
     {
       "id": "b11aacc3-9d94-4bbc-90a0-21417159e44b",
@@ -31,6 +31,30 @@
       "preco": 35.9,
       "categoria": "Italiana",
       "disponivel": true
+    },
+    {
+      "id": "f07b3fa2-8cf5-4e6c-83a3-64fe151b69d7",
+      "nome": "TTT",
+      "descricao": "TT",
+      "preco": 1,
+      "categoria": "true",
+      "disponivel": true
+    },
+    {
+      "id": "5fc9cb1d-8016-4526-830b-d9cb2d37600a",
+      "nome": "aaaaa",
+      "descricao": "llll",
+      "preco": 200,
+      "categoria": "100",
+      "disponivel": true
+    },
+    {
+      "id": "c491e3ba-558b-4eda-aaba-f304bf256756",
+      "nome": "arroz",
+      "descricao": "arroz",
+      "preco": 10,
+      "categoria": "brasil",
+      "disponivel": false
     }
   ],
   "users": [
@@ -48,6 +72,10 @@
     {
       "email": "tiagocnn.123@gmail.com",
       "password": "$2b$10$3PT8mI4KjbVVEVmR.LL8I./84RuUP1LITYABkcrGe/SxQKVlzhxDa"
+    },
+    {
+      "email": "carinhanhacnn.100@gmail.com",
+      "password": "$2b$10$RwO18zfBXYABBuN2p1FH5unLB9rxs80pOupNtkMAgaKSDrEa9lt6a"
     }
   ]
 }
