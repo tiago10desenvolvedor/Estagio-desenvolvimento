@@ -1,12 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import {
-  View,
-  Text,
-  ActivityIndicator,
-  StyleSheet,
-  Alert,
-  Button,
-  Platform,
+  View,Text,ActivityIndicator,StyleSheet,Alert,Button,Platform,
 } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
 import { useIsFocused } from '@react-navigation/native';
