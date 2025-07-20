@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
-import { AuthContext } from '../context/AuthContext'; // importa o contexto
+import { AuthContext } from '../context/AuthContext'; 
 
 export default function CreateDishScreen({ navigation }) {
-  const { token } = useContext(AuthContext); // pega o token
+  const { token } = useContext(AuthContext); 
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [preco, setPreco] = useState('');
