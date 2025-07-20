@@ -1,13 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {
-  View,
-  TextInput,
-  Button,
-  Alert,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Text,
+  View,TextInput,Button,Alert,StyleSheet,Image,TouchableOpacity,Text,
 } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigation } from '@react-navigation/native';
