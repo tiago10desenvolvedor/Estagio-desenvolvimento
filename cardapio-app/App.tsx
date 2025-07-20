@@ -14,7 +14,8 @@ import Register from './screens/Register';
 
 const Stack = createNativeStackNavigator();
 
-// Rotas privadas (para usuários autenticados)
+//Rotas privadas:
+
 function AppStack() {
   return (
     <Stack.Navigator initialRouteName="DishList">
@@ -26,7 +27,7 @@ function AppStack() {
   );
 }
 
-// Rotas públicas (para quem ainda não está logado)
+// Rotas públicas:
 function AuthStack() {
   return (
     <Stack.Navigator initialRouteName="Login">
@@ -36,12 +37,11 @@ function AuthStack() {
   );
 }
 
-// Define qual stack mostrar com base no login
 function Routes() {
   const { token, loading } = useContext(AuthContext);
 
   if (loading) {
-    return null; // Pode colocar um <Loading /> aqui
+    return null; 
   }
 
   return (
