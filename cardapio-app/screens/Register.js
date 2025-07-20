@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View,
-  TextInput,
-  Button,
-  Alert,
-  StyleSheet,
-  Text,
-  Image,
-  TouchableOpacity,
+  View,TextInput,Button,Alert,StyleSheet,Text,Image,TouchableOpacity,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
